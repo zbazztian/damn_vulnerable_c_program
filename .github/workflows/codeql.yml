@@ -21,10 +21,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: install dependencies
-      env:
-        brauso: '$PATH:flumbo ${{ env.PATH }}'
       run: |
-       echo "there it is: $brauso"
        git clone https://github.com/mirrorer/afl
        cd afl
        make
@@ -37,6 +34,11 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         queries: security-and-quality
+
+    - name: set path
+      run: |
+       export PATH="$PATH:$GITHUB_WORKSPACE/afl"
+       echo $PATH
 
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1.1.3
