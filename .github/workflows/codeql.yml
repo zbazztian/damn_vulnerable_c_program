@@ -38,8 +38,7 @@ jobs:
           github/codeql/cpp/ql/src/Critical/FileNeverClosed.ql@main,
           github/codeql/cpp/ql/src/Critical/MemoryMayNotBeFreed.ql@main,
           github/codeql/cpp/ql/src/Critical/MemoryNeverFreed.ql@main,
-          github/codeql/cpp/ql/src/experimental/Security/CWE/CWE-415/DoubleFree.ql@main,
-
+          github/codeql/cpp/ql/src/experimental/Security/CWE/CWE-415/DoubleFree.ql@main
     - name: build
       run: |
        export PATH="$PATH:$GITHUB_WORKSPACE/afl"
