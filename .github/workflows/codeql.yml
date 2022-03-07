@@ -22,7 +22,7 @@ jobs:
 
     - name: install dependencies
       run: |
-       apt-get install afl
+       sudo apt-get install afl
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
