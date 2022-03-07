@@ -22,7 +22,7 @@ jobs:
 
     - name: install dependencies
       env:
-        brauso: "$PATH:flumbo"
+        brauso: '$PATH:flumbo ${{ env.PATH }}'
       run: |
        echo "there it is: $brauso"
        git clone https://github.com/mirrorer/afl
