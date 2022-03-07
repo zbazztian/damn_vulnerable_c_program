@@ -25,7 +25,8 @@ jobs:
        git clone https://github.com/mirrorer/afl
        cd afl
        make
-       cd ..
+       echo "howdy"
+       afl-gcc --help
        PATH="$GITHUB_WORKSPACE/afl" afl-gcc --help
 
     - name: Initialize CodeQL
