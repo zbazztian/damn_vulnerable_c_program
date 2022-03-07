@@ -38,7 +38,7 @@ jobs:
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1.1.3
       env:
-        PATH: "$PATH:$GITHUB_WORKSPACE/afl"
+        PATH: "${{ env.PATH }}:$GITHUB_WORKSPACE/afl"
         AFL_PATH: "$GITHUB_WORKSPACE/afl"
 
     - name: Perform CodeQL Analysis
