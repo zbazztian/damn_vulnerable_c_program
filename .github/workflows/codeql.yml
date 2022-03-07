@@ -26,8 +26,7 @@ jobs:
        cd afl
        make
        echo "howdy"
-       ./afl-gcc --help
-       PATH="$GITHUB_WORKSPACE/afl" afl-gcc --help
+       AFL_PATH=$(pwd) ./afl-gcc --version
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
