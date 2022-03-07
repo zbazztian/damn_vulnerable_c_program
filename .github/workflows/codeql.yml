@@ -20,6 +20,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: install dependencies
+      run: |
+       apt-get install afl
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
