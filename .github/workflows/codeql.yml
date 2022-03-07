@@ -22,7 +22,11 @@ jobs:
 
     - name: install dependencies
       run: |
-       sudo apt-get install afl
+       git clone https://github.com/mirrorer/afl
+       cd afl
+       make
+       cd ..
+       PATH="$GITHUB_WORKSPACE/afl" afl-gcc --help
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
@@ -32,6 +36,8 @@ jobs:
 
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1.1.3
+      env:
+        PATH: $GITHUB_WORKSPACE/afl
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
