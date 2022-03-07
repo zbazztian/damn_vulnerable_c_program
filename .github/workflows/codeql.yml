@@ -26,7 +26,7 @@ jobs:
        cd afl
        make
        echo "howdy"
-       PATH="PATH:$(pwd)" AFL_PATH="$(pwd)" afl-gcc --version
+       PATH="$PATH:$(pwd)" AFL_PATH="$(pwd)" afl-gcc --version
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
@@ -37,7 +37,8 @@ jobs:
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1.1.3
       env:
-        PATH: $GITHUB_WORKSPACE/afl
+        PATH: "$PATH:$GITHUB_WORKSPACE/afl"
+        AFL_PATH: "$GITHUB_WORKSPACE/afl"
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
