@@ -32,6 +32,7 @@ jobs:
         languages: ${{ matrix.language }}
         queries: zbazztian/custom-queries/cpp/default.qls@master
         debug: true
+
     - name: build
       run: |
        export PATH="$PATH:$GITHUB_WORKSPACE/afl"
